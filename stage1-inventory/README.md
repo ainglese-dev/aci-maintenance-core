@@ -12,7 +12,9 @@ Generate Ansible-ready inventory files from APIC exports with:
 
 ## Required Input Files
 
-Export these JSON files from APIC GUI:
+You can obtain the required JSON files using either method:
+
+### Method 1: APIC GUI Export (Original)
 
 1. **Fabric Membership**: 
    - Path: Fabric → Inventory → Fabric Membership → Export (JSON)
@@ -21,6 +23,27 @@ Export these JSON files from APIC GUI:
 2. **Static Node Management**:
    - Path: Tenant mgmt → Static Node Management → Export (JSON)
    - Contains: In-band and out-of-band management IP addresses
+
+### Method 2: APIC CLI moquery Commands (Recommended)
+
+For consistent, scriptable data collection, use these moquery commands from the APIC CLI:
+
+```bash
+# Fabric inventory (nodes, roles, models)
+moquery -c fabricNode -o json > fabric_inventory.json
+
+# Management IP assignments (in-band and out-of-band)
+moquery -c mgmtRsInBStNode,mgmtRsOoBStNode -o json > management_ips.json
+```
+
+📖 **See [MOQUERY_COMMANDS.md](../MOQUERY_COMMANDS.md) for complete CLI reference and troubleshooting**
+
+### Expected JSON Structure
+
+Both methods should produce JSON files with this structure:
+- Root-level `imdata` array containing managed objects
+- `fabricNode` objects with attributes: id, name, role, model, serial, podId
+- Management objects: `mgmtRsInBStNode` (in-band) and `mgmtRsOoBStNode` (out-of-band)
 
 ## Usage
 

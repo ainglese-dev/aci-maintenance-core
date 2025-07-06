@@ -68,11 +68,24 @@ Only requires: `rich>=13.0.0` (with graceful fallback if unavailable)
 - **Copy-Paste Workflow**: Simple file transfer between stages
 - **Extensible Design**: Easy to add new stages for complex workflows
 
-## APIC Export Requirements
+## APIC Data Collection
 
-**Stage 1 Inputs:**
+**Stage 1 requires JSON files with fabric and management data:**
+
+### GUI Export Method (Original)
 1. **Fabric Membership**: Fabric → Inventory → Fabric Membership → Export (JSON)
 2. **Static Node Management**: Tenant mgmt → Static Node Management → Export (JSON)
+
+### CLI moquery Method (Recommended)
+```bash
+# From APIC CLI - get fabric nodes
+moquery -c fabricNode -o json > fabric_inventory.json
+
+# Get management IP assignments  
+moquery -c mgmtRsInBStNode,mgmtRsOoBStNode -o json > management_ips.json
+```
+
+📖 **Complete CLI reference: [MOQUERY_COMMANDS.md](MOQUERY_COMMANDS.md)**
 
 ## Development
 
