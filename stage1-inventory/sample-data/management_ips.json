@@ -1,0 +1,125 @@
+{
+  "imdata": [
+    {
+      "mgmtRsOoBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-1",
+          "addr": "10.0.1.11",
+          "gw": "10.0.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/oob-default/rsooBStNode-[topology/pod-1/node-1]"
+        }
+      }
+    },
+    {
+      "mgmtRsOoBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-2",
+          "addr": "10.0.1.12",
+          "gw": "10.0.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/oob-default/rsooBStNode-[topology/pod-1/node-2]"
+        }
+      }
+    },
+    {
+      "mgmtRsOoBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-3",
+          "addr": "10.0.1.13",
+          "gw": "10.0.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/oob-default/rsooBStNode-[topology/pod-1/node-3]"
+        }
+      }
+    },
+    {
+      "mgmtRsInBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-101",
+          "addr": "172.16.1.101",
+          "gw": "172.16.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/inb-default/rsinBStNode-[topology/pod-1/node-101]"
+        }
+      }
+    },
+    {
+      "mgmtRsOoBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-101",
+          "addr": "10.0.1.101",
+          "gw": "10.0.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/oob-default/rsooBStNode-[topology/pod-1/node-101]"
+        }
+      }
+    },
+    {
+      "mgmtRsInBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-102",
+          "addr": "172.16.1.102",
+          "gw": "172.16.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/inb-default/rsinBStNode-[topology/pod-1/node-102]"
+        }
+      }
+    },
+    {
+      "mgmtRsOoBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-102",
+          "addr": "10.0.1.102",
+          "gw": "10.0.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/oob-default/rsooBStNode-[topology/pod-1/node-102]"
+        }
+      }
+    },
+    {
+      "mgmtRsInBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-201",
+          "addr": "172.16.1.201",
+          "gw": "172.16.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/inb-default/rsinBStNode-[topology/pod-1/node-201]"
+        }
+      }
+    },
+    {
+      "mgmtRsOoBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-201",
+          "addr": "10.0.1.201",
+          "gw": "10.0.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/oob-default/rsooBStNode-[topology/pod-1/node-201]"
+        }
+      }
+    },
+    {
+      "mgmtRsOoBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-202",
+          "addr": "10.0.1.202",
+          "gw": "10.0.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/oob-default/rsooBStNode-[topology/pod-1/node-202]"
+        }
+      }
+    },
+    {
+      "mgmtRsInBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-203",
+          "addr": "172.16.1.203",
+          "gw": "172.16.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/inb-default/rsinBStNode-[topology/pod-1/node-203]"
+        }
+      }
+    },
+    {
+      "mgmtRsOoBStNode": {
+        "attributes": {
+          "tDn": "topology/pod-1/node-204",
+          "addr": "10.0.1.204",
+          "gw": "10.0.1.1",
+          "dn": "uni/tn-mgmt/mgmtp-default/oob-default/rsooBStNode-[topology/pod-1/node-204]"
+        }
+      }
+    }
+  ],
+  "totalCount": "12"
+}

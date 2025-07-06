@@ -1,0 +1,59 @@
+{
+  "imdata": [
+    {
+      "topSystem": {
+        "attributes": {
+          "id": "1",
+          "name": "apic1",
+          "role": "controller",
+          "state": "in-service",
+          "oobMgmtAddr": "10.0.1.11",
+          "podId": "1",
+          "dn": "topology/pod-1/node-1/sys",
+          "fabricDomain": "ACI-Fabric",
+          "fabricId": "1",
+          "serial": "FDO24261234",
+          "model": "APIC-M3",
+          "version": "5.2(4e)"
+        }
+      }
+    },
+    {
+      "topSystem": {
+        "attributes": {
+          "id": "2",
+          "name": "apic2",
+          "role": "controller",
+          "state": "in-service",
+          "oobMgmtAddr": "10.0.1.12",
+          "podId": "1",
+          "dn": "topology/pod-1/node-2/sys",
+          "fabricDomain": "ACI-Fabric",
+          "fabricId": "1",
+          "serial": "FDO24261235",
+          "model": "APIC-M3",
+          "version": "5.2(4e)"
+        }
+      }
+    },
+    {
+      "topSystem": {
+        "attributes": {
+          "id": "3",
+          "name": "apic3",
+          "role": "controller",
+          "state": "in-service",
+          "oobMgmtAddr": "10.0.1.13",
+          "podId": "1",
+          "dn": "topology/pod-1/node-3/sys",
+          "fabricDomain": "ACI-Fabric",
+          "fabricId": "1",
+          "serial": "FDO24261236",
+          "model": "APIC-M3",
+          "version": "5.2(4e)"
+        }
+      }
+    }
+  ],
+  "totalCount": "3"
+}

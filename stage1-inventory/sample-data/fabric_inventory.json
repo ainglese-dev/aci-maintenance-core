@@ -1,0 +1,140 @@
+{
+  "imdata": [
+    {
+      "fabricNode": {
+        "attributes": {
+          "id": "1",
+          "name": "apic1",
+          "role": "controller",
+          "fabricSt": "active",
+          "model": "APIC-M3",
+          "serial": "FDO24261234",
+          "version": "5.2(4e)",
+          "podId": "1",
+          "dn": "topology/pod-1/node-1"
+        }
+      }
+    },
+    {
+      "fabricNode": {
+        "attributes": {
+          "id": "2",
+          "name": "apic2",
+          "role": "controller",
+          "fabricSt": "active",
+          "model": "APIC-M3",
+          "serial": "FDO24261235",
+          "version": "5.2(4e)",
+          "podId": "1",
+          "dn": "topology/pod-1/node-2"
+        }
+      }
+    },
+    {
+      "fabricNode": {
+        "attributes": {
+          "id": "3",
+          "name": "apic3",
+          "role": "controller",
+          "fabricSt": "active",
+          "model": "APIC-M3",
+          "serial": "FDO24261236",
+          "version": "5.2(4e)",
+          "podId": "1",
+          "dn": "topology/pod-1/node-3"
+        }
+      }
+    },
+    {
+      "fabricNode": {
+        "attributes": {
+          "id": "101",
+          "name": "spine1",
+          "role": "spine",
+          "fabricSt": "active",
+          "model": "N9K-C9364C",
+          "serial": "FDO24261237",
+          "version": "15.2(4e)",
+          "podId": "1",
+          "dn": "topology/pod-1/node-101"
+        }
+      }
+    },
+    {
+      "fabricNode": {
+        "attributes": {
+          "id": "102",
+          "name": "spine2",
+          "role": "spine",
+          "fabricSt": "active",
+          "model": "N9K-C9364C",
+          "serial": "FDO24261238",
+          "version": "15.2(4e)",
+          "podId": "1",
+          "dn": "topology/pod-1/node-102"
+        }
+      }
+    },
+    {
+      "fabricNode": {
+        "attributes": {
+          "id": "201",
+          "name": "leaf1",
+          "role": "leaf",
+          "fabricSt": "active",
+          "model": "N9K-C93180YC-EX",
+          "serial": "FDO24261239",
+          "version": "15.2(4e)",
+          "podId": "1",
+          "dn": "topology/pod-1/node-201"
+        }
+      }
+    },
+    {
+      "fabricNode": {
+        "attributes": {
+          "id": "202",
+          "name": "leaf2",
+          "role": "leaf",
+          "fabricSt": "active",
+          "model": "N9K-C93180YC-EX",
+          "serial": "FDO24261240",
+          "version": "15.2(4e)",
+          "podId": "1",
+          "dn": "topology/pod-1/node-202"
+        }
+      }
+    },
+    {
+      "fabricNode": {
+        "attributes": {
+          "id": "203",
+          "name": "leaf3",
+          "role": "leaf",
+          "fabricSt": "active",
+          "model": "N9K-C93180YC-EX",
+          "serial": "FDO24261241",
+          "version": "15.2(4e)",
+          "podId": "1",
+          "dn": "topology/pod-1/node-203"
+        }
+      }
+    },
+    {
+      "fabricNode": {
+        "attributes": {
+          "id": "204",
+          "name": "leaf4",
+          "role": "leaf",
+          "fabricSt": "active",
+          "model": "N9K-C93180YC-EX",
+          "serial": "FDO24261242",
+          "version": "15.2(4e)",
+          "podId": "1",
+          "dn": "topology/pod-1/node-204"
+        }
+      }
+    }
+  ],
+  "totalCount": "9"
+}

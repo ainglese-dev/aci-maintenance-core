@@ -1,0 +1,2 @@
+# This file ensures the comparisons directory is included in git
+# Actual comparison files are ignored via .gitignore

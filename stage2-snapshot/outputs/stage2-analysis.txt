@@ -1,0 +1,4 @@
+Stage 2 Analysis Results
+========================================
+Processed 1 inventory files
+This is a placeholder output file
