@@ -4,6 +4,7 @@ Common utilities for ACI Maintenance stages
 
 import json
 import os
+import logging
 from pathlib import Path
 from datetime import datetime
 
@@ -80,6 +81,25 @@ def read_inventory_file(filepath):
     except Exception as e:
         print(f"Error reading inventory file {filepath}: {e}")
         return None
+
+
+def setup_logging(level=logging.INFO, log_file=None):
+    """Setup logging configuration"""
+    format_str = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    
+    if log_file:
+        logging.basicConfig(
+            level=level,
+            format=format_str,
+            filename=log_file,
+            filemode='a'
+        )
+    else:
+        logging.basicConfig(
+            level=level,
+            format=format_str,
+            handlers=[logging.StreamHandler()]
+        )
 
 
 def get_stage_info():

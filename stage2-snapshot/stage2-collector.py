@@ -52,27 +52,30 @@ class Stage2Collector:
         try:
             self.logger.info("=== Stage 2: ACI Fabric Snapshot Collector ===")
             
-            # Load inventory from Stage 1
-            if not await self.load_inventory():
-                return False
-            
-            # Get credentials
-            username, password = self.get_credentials()
-            
-            # Initialize fabric client
-            if not await self.initialize_fabric_client(username, password):
-                return False
-            
-            # Create snapshot
-            snapshot_path = self.create_snapshot()
-            
             # Collect data based on mode
             if self.args.mode == 'collect':
+                # Load inventory from Stage 1
+                if not await self.load_inventory():
+                    return False
+                
+                # Get credentials
+                username, password = self.get_credentials()
+                
+                # Initialize fabric client
+                if not await self.initialize_fabric_client(username, password):
+                    return False
+                
+                # Create snapshot
+                snapshot_path = self.create_snapshot()
+                
                 success = await self.collect_all_data(snapshot_path)
+                
             elif self.args.mode == 'compare':
                 success = await self.compare_snapshots()
+                
             elif self.args.mode == 'list':
                 success = self.list_snapshots()
+                
             else:
                 self.logger.error(f"Unknown mode: {self.args.mode}")
                 return False
@@ -95,7 +98,7 @@ class Stage2Collector:
         """Load fabric inventory from Stage 1"""
         self.logger.info("Loading fabric inventory from Stage 1...")
         
-        stage1_path = self.args.inventory_file
+        stage1_path = getattr(self.args, 'inventory_file', None)
         self.inventory = load_inventory_from_stage1(stage1_path)
         
         if not self.inventory:
@@ -331,9 +334,13 @@ Examples:
                                help='Path to current snapshot')
     compare_parser.add_argument('--show-report', action='store_true',
                                help='Display report after creation')
+    compare_parser.add_argument('--inventory-file', '-i',
+                               help='Stage 1 inventory file (auto-detected if not specified)')
     
     # List subcommand
     list_parser = subparsers.add_parser('list', help='List available snapshots')
+    list_parser.add_argument('--inventory-file', '-i', 
+                            help='Stage 1 inventory file (auto-detected if not specified)')
     
     # Global options
     parser.add_argument('--verbose', '-v', action='store_true',

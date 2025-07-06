@@ -208,6 +208,10 @@ class FabricClient:
         self.primary_apic = None
         self.device_clients = {}
         
+    def connect(self) -> bool:
+        """Connect to fabric via primary APIC with failover"""
+        return self.connect_to_fabric()
+    
     def connect_to_fabric(self) -> bool:
         """Connect to fabric via primary APIC with failover"""
         for apic_device in self.apic_devices:

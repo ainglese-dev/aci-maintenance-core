@@ -43,17 +43,130 @@ class InventoryParser:
             return None
         
         try:
-            with open(stage1_file, 'r') as f:
-                stage1_data = json.load(f)
-            
-            logger.info(f"Loaded Stage 1 data from {stage1_file}")
-            return self.parse_inventory_data(stage1_data)
-            
+            # Check if it's an INI file (from Stage 1) or JSON file
+            if stage1_file.suffix.lower() == '.ini':
+                return self.parse_ini_file(stage1_file)
+            else:
+                with open(stage1_file, 'r') as f:
+                    stage1_data = json.load(f)
+                
+                logger.info(f"Loaded Stage 1 data from {stage1_file}")
+                return self.parse_inventory_data(stage1_data)
+                
         except json.JSONDecodeError as e:
             logger.error(f"Invalid JSON in Stage 1 file: {e}")
             return None
         except Exception as e:
             logger.error(f"Failed to parse Stage 1 file: {e}")
+            return None
+    
+    def parse_ini_file(self, ini_file: Path) -> Optional[FabricInventory]:
+        """Parse Ansible inventory INI file from Stage 1"""
+        try:
+            # Import here to avoid circular imports
+            sys.path.append(str(Path(__file__).parent.parent / "shared"))
+            from utils import read_inventory_file
+            
+            inventory_data = read_inventory_file(ini_file)
+            if not inventory_data:
+                logger.error(f"Failed to read inventory file: {ini_file}")
+                return None
+            
+            # Convert INI data to FabricInventory format
+            apic_devices = []
+            leaf_devices = []
+            spine_devices = []
+            other_devices = []
+            
+            for host in inventory_data['hosts']:
+                device_info = self.parse_ini_host(host)
+                if device_info:
+                    if 'apic' in host['section'].lower():
+                        apic_devices.append(device_info)
+                    elif 'leaf' in host['section'].lower() or 'leaves' in host['section'].lower():
+                        leaf_devices.append(device_info)
+                    elif 'spine' in host['section'].lower():
+                        spine_devices.append(device_info)
+                    else:
+                        other_devices.append(device_info)
+            
+            # Extract metadata
+            fabric_name = "ACI Fabric"
+            discovery_timestamp = inventory_data.get('metadata', {}).get('generated', 'unknown')
+            
+            total_devices = len(apic_devices) + len(leaf_devices) + len(spine_devices) + len(other_devices)
+            
+            inventory = FabricInventory(
+                apic_devices=apic_devices,
+                leaf_devices=leaf_devices,
+                spine_devices=spine_devices,
+                other_devices=other_devices,
+                fabric_name=fabric_name,
+                discovery_timestamp=discovery_timestamp,
+                total_devices=total_devices
+            )
+            
+            logger.info(f"Parsed INI inventory: {len(apic_devices)} APICs, {len(leaf_devices)} LEAFs, "
+                       f"{len(spine_devices)} SPINEs, {len(other_devices)} other devices")
+            
+            return inventory
+            
+        except Exception as e:
+            logger.error(f"Failed to parse INI file {ini_file}: {e}")
+            return None
+    
+    def parse_ini_host(self, host_data: Dict[str, Any]) -> Optional[DeviceInfo]:
+        """Parse a single host from INI file"""
+        try:
+            # Extract hostname/IP from the line
+            line = host_data['line']
+            parts = line.split()
+            hostname = parts[0]
+            
+            # Parse additional parameters
+            params = {}
+            for part in parts[1:]:
+                if '=' in part:
+                    key, value = part.split('=', 1)
+                    params[key] = value
+            
+            # Determine device type from section
+            section = host_data['section'].lower()
+            if 'apic' in section:
+                device_type = 'apic'
+            elif 'leaf' in section or 'leaves' in section:
+                device_type = 'leaf'
+            elif 'spine' in section:
+                device_type = 'spine'
+            else:
+                device_type = 'other'
+            
+            # Extract node ID and priority
+            node_id = None
+            priority = 1
+            if 'node_id' in params:
+                try:
+                    node_id = int(params['node_id'])
+                except ValueError:
+                    pass
+            if 'priority' in params:
+                try:
+                    priority = int(params['priority'])
+                except ValueError:
+                    pass
+            
+            device_info = DeviceInfo(
+                name=hostname,
+                hostname=hostname,
+                device_type=device_type,
+                node_id=node_id,
+                priority=priority
+            )
+            
+            return device_info
+            
+        except Exception as e:
+            logger.warning(f"Failed to parse host entry: {e}")
             return None
     
     def parse_inventory_data(self, data: Dict[str, Any]) -> FabricInventory:
@@ -114,10 +227,10 @@ class InventoryParser:
         """Find the most recent Stage 1 output file"""
         if not search_paths:
             search_paths = [
-                "../stage1-discovery/discovered_fabric.json",
-                "../stage1-discovery/output/discovered_fabric.json",
-                "./discovered_fabric.json",
-                "../discovered_fabric.json"
+                "inputs/aci-inventory.ini",
+                "../stage1-inventory/outputs/aci-inventory.ini",
+                "./aci-inventory.ini",
+                "../aci-inventory.ini"
             ]
         
         for search_path in search_paths:
