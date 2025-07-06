@@ -1,140 +1,165 @@
 {
+  "totalCount": "5",
   "imdata": [
     {
       "fabricNode": {
         "attributes": {
-          "id": "1",
-          "name": "apic1",
-          "role": "controller",
+          "adSt": "on",
+          "address": "10.1.16.67",
+          "annotation": "",
+          "apicType": "apic",
+          "childAction": "",
+          "delayedHeartbeat": "no",
+          "dn": "topology/pod-1/node-1003",
+          "extMngdBy": "",
           "fabricSt": "active",
-          "model": "APIC-M3",
-          "serial": "FDO24261234",
-          "version": "5.2(4e)",
-          "podId": "1",
-          "dn": "topology/pod-1/node-1"
+          "id": "1003",
+          "lastStateModTs": "2025-07-01T23:05:24.842-04:00",
+          "lcOwn": "local",
+          "modTs": "2025-07-01T23:06:04.720-04:00",
+          "model": "N9K-C9372PX-E",
+          "monPolDn": "uni/fabric/monfab-default",
+          "name": "leaf-103",
+          "nameAlias": "",
+          "nodeType": "unspecified",
+          "rn": "node-1003",
+          "role": "leaf",
+          "serial": "FDO22200H8X",
+          "status": "",
+          "uid": "0",
+          "userdom": "all",
+          "vendor": "Cisco Systems, Inc",
+          "version": "n9000-14.2(7w)"
         }
       }
     },
     {
       "fabricNode": {
         "attributes": {
-          "id": "2",
-          "name": "apic2",
-          "role": "controller",
+          "adSt": "on",
+          "address": "10.1.16.66",
+          "annotation": "",
+          "apicType": "apic",
+          "childAction": "",
+          "delayedHeartbeat": "no",
+          "dn": "topology/pod-1/node-101",
+          "extMngdBy": "",
           "fabricSt": "active",
-          "model": "APIC-M3",
-          "serial": "FDO24261235",
-          "version": "5.2(4e)",
-          "podId": "1",
-          "dn": "topology/pod-1/node-2"
-        }
-      }
-    },
-    {
-      "fabricNode": {
-        "attributes": {
-          "id": "3",
-          "name": "apic3",
-          "role": "controller",
-          "fabricSt": "active",
-          "model": "APIC-M3",
-          "serial": "FDO24261236",
-          "version": "5.2(4e)",
-          "podId": "1",
-          "dn": "topology/pod-1/node-3"
-        }
-      }
-    },
-    {
-      "fabricNode": {
-        "attributes": {
           "id": "101",
-          "name": "spine1",
-          "role": "spine",
-          "fabricSt": "active",
-          "model": "N9K-C9364C",
-          "serial": "FDO24261237",
-          "version": "15.2(4e)",
-          "podId": "1",
-          "dn": "topology/pod-1/node-101"
+          "lastStateModTs": "2025-07-01T23:05:24.840-04:00",
+          "lcOwn": "local",
+          "modTs": "2025-07-01T23:06:04.720-04:00",
+          "model": "N9K-C93180YC-EX",
+          "monPolDn": "uni/fabric/monfab-default",
+          "name": "leaf-101",
+          "nameAlias": "",
+          "nodeType": "unspecified",
+          "rn": "node-101",
+          "role": "leaf",
+          "serial": "FDO220810EF",
+          "status": "",
+          "uid": "0",
+          "userdom": "all",
+          "vendor": "Cisco Systems, Inc",
+          "version": "n9000-16.0(9d)"
         }
       }
     },
     {
       "fabricNode": {
         "attributes": {
+          "adSt": "on",
+          "address": "10.1.16.64",
+          "annotation": "",
+          "apicType": "apic",
+          "childAction": "",
+          "delayedHeartbeat": "no",
+          "dn": "topology/pod-1/node-102",
+          "extMngdBy": "",
+          "fabricSt": "active",
           "id": "102",
-          "name": "spine2",
+          "lastStateModTs": "2025-06-18T09:54:26.302-04:00",
+          "lcOwn": "local",
+          "modTs": "2025-06-18T09:49:43.986-04:00",
+          "model": "N9K-C93180YC-EX",
+          "monPolDn": "uni/fabric/monfab-default",
+          "name": "leaf-102",
+          "nameAlias": "",
+          "nodeType": "unspecified",
+          "rn": "node-102",
+          "role": "leaf",
+          "serial": "FDO22080JDL",
+          "status": "",
+          "uid": "0",
+          "userdom": "all",
+          "vendor": "Cisco Systems, Inc",
+          "version": "n9000-16.0(9d)"
+        }
+      }
+    },
+    {
+      "fabricNode": {
+        "attributes": {
+          "adSt": "on",
+          "address": "10.1.16.65",
+          "annotation": "",
+          "apicType": "apic",
+          "childAction": "",
+          "delayedHeartbeat": "no",
+          "dn": "topology/pod-1/node-109",
+          "extMngdBy": "",
+          "fabricSt": "active",
+          "id": "109",
+          "lastStateModTs": "2025-07-01T23:07:18.900-04:00",
+          "lcOwn": "local",
+          "modTs": "2025-07-01T23:08:04.760-04:00",
+          "model": "N9K-C9504",
+          "monPolDn": "uni/fabric/monfab-default",
+          "name": "spine-201",
+          "nameAlias": "",
+          "nodeType": "unspecified",
+          "rn": "node-109",
           "role": "spine",
-          "fabricSt": "active",
-          "model": "N9K-C9364C",
-          "serial": "FDO24261238",
-          "version": "15.2(4e)",
-          "podId": "1",
-          "dn": "topology/pod-1/node-102"
+          "serial": "FOX2152PRTM",
+          "status": "",
+          "uid": "0",
+          "userdom": "all",
+          "vendor": "Cisco Systems, Inc",
+          "version": "n9000-16.0(9d)"
         }
       }
     },
     {
       "fabricNode": {
         "attributes": {
-          "id": "201",
-          "name": "leaf1",
-          "role": "leaf",
-          "fabricSt": "active",
-          "model": "N9K-C93180YC-EX",
-          "serial": "FDO24261239",
-          "version": "15.2(4e)",
-          "podId": "1",
-          "dn": "topology/pod-1/node-201"
-        }
-      }
-    },
-    {
-      "fabricNode": {
-        "attributes": {
-          "id": "202",
-          "name": "leaf2",
-          "role": "leaf",
-          "fabricSt": "active",
-          "model": "N9K-C93180YC-EX",
-          "serial": "FDO24261240",
-          "version": "15.2(4e)",
-          "podId": "1",
-          "dn": "topology/pod-1/node-202"
-        }
-      }
-    },
-    {
-      "fabricNode": {
-        "attributes": {
-          "id": "203",
-          "name": "leaf3",
-          "role": "leaf",
-          "fabricSt": "active",
-          "model": "N9K-C93180YC-EX",
-          "serial": "FDO24261241",
-          "version": "15.2(4e)",
-          "podId": "1",
-          "dn": "topology/pod-1/node-203"
-        }
-      }
-    },
-    {
-      "fabricNode": {
-        "attributes": {
-          "id": "204",
-          "name": "leaf4",
-          "role": "leaf",
-          "fabricSt": "active",
-          "model": "N9K-C93180YC-EX",
-          "serial": "FDO24261242",
-          "version": "15.2(4e)",
-          "podId": "1",
-          "dn": "topology/pod-1/node-204"
+          "adSt": "on",
+          "address": "10.1.0.1",
+          "annotation": "",
+          "apicType": "apic",
+          "childAction": "",
+          "delayedHeartbeat": "no",
+          "dn": "topology/pod-1/node-1",
+          "extMngdBy": "",
+          "fabricSt": "unknown",
+          "id": "1",
+          "lastStateModTs": "2025-06-16T03:23:47.480-04:00",
+          "lcOwn": "local",
+          "modTs": "2025-06-16T03:19:05.163-04:00",
+          "model": "APIC-SERVER-M2",
+          "monPolDn": "uni/fabric/monfab-default",
+          "name": "apic1",
+          "nameAlias": "",
+          "nodeType": "unspecified",
+          "rn": "node-1",
+          "role": "controller",
+          "serial": "FCH2220V0RW",
+          "status": "",
+          "uid": "0",
+          "userdom": "all",
+          "vendor": "Cisco Systems, Inc",
+          "version": "6.0(9d)"
         }
       }
     }
-  ],
-  "totalCount": "9"
+  ]
 }
