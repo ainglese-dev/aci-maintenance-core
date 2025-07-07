@@ -130,6 +130,16 @@ class InventoryParser:
                     key, value = part.split('=', 1)
                     params[key] = value
             
+            # Use ansible_host IP if available, otherwise use hostname
+            if 'ansible_host' in params:
+                # Extract IP from ansible_host, removing CIDR notation if present
+                ansible_host = params['ansible_host']
+                if '/' in ansible_host:
+                    # Remove CIDR notation (e.g., "10.66.93.16/27" -> "10.66.93.16")
+                    hostname = ansible_host.split('/')[0]
+                else:
+                    hostname = ansible_host
+            
             # Determine device type from section
             section = host_data['section'].lower()
             if 'apic' in section:
@@ -156,8 +166,8 @@ class InventoryParser:
                     pass
             
             device_info = DeviceInfo(
-                name=hostname,
-                hostname=hostname,
+                name=parts[0],  # Keep original hostname for identification
+                hostname=hostname,  # Use IP from ansible_host if available
                 device_type=device_type,
                 node_id=node_id,
                 priority=priority
