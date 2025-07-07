@@ -94,7 +94,7 @@ class Stage2Collector:
             self.logger.error(f"Unexpected error: {e}", exc_info=True)
             return False
     
-    async def load_inventory(self) -> bool:
+    def load_inventory(self) -> bool:
         """Load fabric inventory from Stage 1"""
         self.logger.info("Loading fabric inventory from Stage 1...")
         

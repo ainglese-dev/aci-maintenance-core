@@ -16,7 +16,7 @@ aci-maintenance-core/
 ├── shared/                    # Common components across stages
 └── aci-demo.py               # Legacy single-file tool (maintained for compatibility)
 ```
-
+1
 ### Stage Philosophy
 Each stage operates independently with clear input/output boundaries:
 - **Stage 1**: Converts APIC GUI exports to Ansible inventory files
