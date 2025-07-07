@@ -55,14 +55,14 @@ class Stage2Collector:
             # Collect data based on mode
             if self.args.mode == 'collect':
                 # Load inventory from Stage 1
-                if not await self.load_inventory():
+                if not self.load_inventory():
                     return False
                 
                 # Get credentials
                 username, password = self.get_credentials()
                 
                 # Initialize fabric client
-                if not await self.initialize_fabric_client(username, password):
+                if not self.initialize_fabric_client(username, password):
                     return False
                 
                 # Create snapshot
@@ -126,7 +126,7 @@ class Stage2Collector:
         
         return username, password
     
-    async def initialize_fabric_client(self, username: str, password: str) -> bool:
+    def initialize_fabric_client(self, username: str, password: str) -> bool:
         """Initialize fabric client with APIC connection"""
         self.logger.info("Initializing fabric client...")
         
@@ -138,7 +138,7 @@ class Stage2Collector:
             )
             
             # Test connection
-            if await self.fabric_client.connect():
+            if self.fabric_client.connect():
                 self.logger.info("✓ Successfully connected to fabric")
                 return True
             else:
